@@ -1,2 +1,11 @@
 # flaps-sim
-Arduino powered Flaps controller for the Piper Archer in X-Plane 11
+Arduino powered Flaps controller for the Piper Archer in X-Plane 11. While X-Plane 11 has a built in on-screen flaps conroller which works via keystrokes or clicking, this works well with powered-flaps (i.e. like. Cessna 172) where a key is similar in action to the toggle switch), however the Piper Archer (and derivatives like the Seminole) use a mechanical level (similar to a parking brake lever). This is an attempt to make one out of 3D printed components with a ratcheting wheel. This is sensed by a potentiometer connected to a microcontroller (arduino or equivelent). There are 2 switches on the controller which allow calibration (setting) of the zero-point and the max point on the potenentiometer. In addition to the 3D printed parts there are some metal motion components (which I will note in the BOM/plans), these are all commercially available Actobotics™ parts (at least in the US, via Servocity.com).
+
+## 3D printed parts
+All the 3D printed parts can be made via PLA (if you aren't too rough on the device - I figured if it broke I would just reprint - plus that is why the motion components are steel!). The only 2 components which might benefit from a tougher plastic would be the gear and catch which could be done in Polycarbonate, ABS or nylon (PC or Nylon would be best as they are also "slippery") The only place that needs supports is the pockets under the main base. The base is designed to screw down onto something larger to hold it in place (such as a piece of plywood). The handle is designed to be a 1/2" (12.5mm) dowel
+
+## Code
+The code is standard C that will work on any standard arduino-esque device (Adafruit feather, Teensy, etc) and really only needs a few input/output pins (A0, D1, D2). Now you may wish to have a faster controller which is fine, but honestly even at 10hz this would be sufficiently fast for flaps control (one reason of using a potentionmeter is the absolute position is known even at boot, as it is simply the resistance of that spot on the potentiometer). The code attempts to debounce the movement (so little noise is removed)
+
+## Wiring
+Wiring is very simple and you see channels to run the wiring through from the potentiometer down through the vertical pylons into the controller pocket. The small pocket will fit a Teensy 4.1 or a adafruit Feather, but an arduino can simply be hooked up seperately under the pocket
